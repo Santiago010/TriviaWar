@@ -1,0 +1,33 @@
+.selected-category {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.selected-category__header {
+  padding: 0.5em;
+  width: 90%;
+  background-color: rgba(57, 162, 219, 0.6);
+  border-radius: 0.5em;
+  border: 2px solid var(--colorBlueDark);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--colorBlueDark);
+  flex-wrap: wrap;
+}
+
+.header__username {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.paragraph-danger-questions {
+  font-size: 1.1em;
+  color: var(--colorBlueDark);
+  font-weight: 600;
+}

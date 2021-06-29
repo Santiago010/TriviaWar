@@ -1,0 +1,132 @@
+.congratulations {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+}
+
+.congratulations__header {
+  grid-area: header;
+  width: 100%;
+  height: min-content;
+  background-color: rgba(232, 240, 242, 0.8);
+  border-bottom: 2px solid var(--colorBlueDark);
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header__questions-correct {
+  flex-basis: 100%;
+  color: var(--colorBlueDark);
+  font-size: 1.2em;
+}
+
+.header__questions-correct {
+  font-size: 1.2em;
+}
+
+.header__markers {
+  display: flex;
+}
+
+.markers__containers {
+  display: flex;
+}
+
+.markers {
+  width: 30px;
+  height: 30px;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  margin-bottom: 2em;
+}
+
+.markers__correct {
+  background-color: #66de93;
+}
+
+.markers__incorrect {
+  background-color: #d83a56;
+}
+
+.congratulations__main {
+  grid-area: main;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  overflow: auto;
+}
+
+.congratulations__main::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.congratulations__main::-webkit-scrollbar-thumb {
+  background-color: var(--colorBlueMedium);
+  border-radius: 0.1em;
+}
+
+.congratulations__main h1 {
+  font-size: 2em;
+  color: var(--colorBlueDark);
+  letter-spacing: -1px;
+}
+
+.main__container-questions {
+  width: 50%;
+  margin: 1em 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  height: min-content;
+  border-radius: 0.5em;
+  text-align: center;
+  padding: 1em;
+  color: var(--colorBlueDark);
+  background-color: rgba(232, 240, 242, 0.8);
+}
+
+.main__container-questions--correct {
+  border: 2px solid #66de93;
+}
+
+.main__container-questions--incorrect {
+  border: 2px solid #d83a56;
+}
+
+.question__question {
+  flex-basis: 100%;
+  font-size: 1.1em;
+  text-align: justify;
+}
+
+.question__question b {
+  font-size: 1.1em;
+}
+
+@media screen and (max-width: 450px) {
+  .main__container-questions {
+    width: 80%;
+  }
+}

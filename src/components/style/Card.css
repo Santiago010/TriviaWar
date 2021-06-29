@@ -1,0 +1,46 @@
+.card {
+  background-color: rgba(57, 162, 219, 0.6);
+  width: 70%;
+  height: min-content;
+  border-radius: 0.5em;
+  border: 2px solid var(--colorBlueDark);
+  text-align: center;
+  color: var(--colorBlueDark);
+  padding: 1em;
+}
+
+.card__question {
+  font-size: 1.5em;
+  letter-spacing: -1px;
+}
+
+.card__answer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card__answer div {
+  margin: 0.5em;
+  background-color: var(--colorWhite);
+  border-radius: 0.2em;
+  font-size: 1em;
+  padding: 1em;
+  border: 1px solid var(--colorBlueDark);
+  color: var(--colorBlueDark);
+  text-decoration: none;
+  cursor: pointer;
+  width: 40%;
+  text-align: justify;
+}
+
+@media screen and (max-width: 450px) {
+  .card {
+    width: 80%;
+  }
+
+  .card__answer div {
+    width: 100%;
+  }
+}
