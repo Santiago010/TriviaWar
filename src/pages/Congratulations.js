@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import useQuestionsAnswered from "../hooks/useQuestionsAnswered";
 import "./style/Congratulations.css";
 
 const Congratulations = () => {
   const answered = useQuestionsAnswered();
   const [questionsCorrect, setQuestionsCorrect] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     setQuestionsCorrect(
@@ -12,7 +14,7 @@ const Congratulations = () => {
         (q) => q.answer.replace(/ /g, "") === q.correct_answer.replace(/ /g, "")
       ).length
     );
-  });
+  }, []);
 
   return (
     <div className="congratulations">

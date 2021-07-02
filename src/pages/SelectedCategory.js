@@ -6,9 +6,9 @@ import Card from "../components/Card";
 import Modal from "../components/Modal";
 import RandomQuestions from "../helpers/RandomQuestions";
 import Countdown from "../helpers/Countdown";
+import { getQuestions } from "../helpers/GetQuestions";
 import useQuestionsAnswered from "../hooks/useQuestionsAnswered";
 import "./style/SelectedCategory.css";
-import { db } from "../firebase";
 
 const SelectedCategory = () => {
   const contextUsername = useContext(UserNameContext);
@@ -21,25 +21,7 @@ const SelectedCategory = () => {
   const answered = useQuestionsAnswered();
   const query = new URLSearchParams(location.search);
   let timerUpdate;
-
-  const fetchData = async () => {
-    try {
-      const data = await fetch(`http://localhost:4040/${category}`);
-      const res = await data.json();
-      return res;
-    } catch (error) {
-      return error;
-    }
-  };
-
-  const getQuestions = async () => {
-    const querySnapshot = await db.collection(category).get();
-    let arrayQuestions = [];
-    querySnapshot.forEach((doc) => {
-      arrayQuestions.push(doc.data());
-    });
-    setQuestions(arrayQuestions);
-  };
+  let initialTime = new Date();
 
   const handleTimerUpdate = () => {
     let now = new Date();
@@ -67,19 +49,15 @@ const SelectedCategory = () => {
       query.set("q", RandomQuestions(questions.length - 2, 0));
       history.push({ search: query.toString() });
     } else {
-      history.push({ pathname: "/Congratulations" });
+      history.push({
+        pathname: `/congratulations`,
+        state: initialTime,
+      });
     }
   };
 
-  const addQuestions = async (question) => {
-    await db.collection(category).doc().set(question);
-  };
-
   useEffect(() => {
-    // fetchData().then((res) => {
-    //   res.forEach((q) => addQuestions(q));
-    // });
-    getQuestions();
+    getQuestions(category).then((data) => setQuestions(data));
   }, []);
 
   useEffect(() => {

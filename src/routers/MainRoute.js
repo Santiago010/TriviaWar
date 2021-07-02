@@ -7,7 +7,7 @@ import {
 
 import Categories from "../pages/Categories";
 import Home from "../pages/Home";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRouteUsers from "./PrivateRoute";
 import NotFound from "../pages/NotFound";
 import SelectedCategory from "../pages/SelectedCategory";
 import { QuestionsAnsweredProvider } from "../context/QuestionsAnswered";
@@ -20,23 +20,21 @@ const MainRoute = () => (
         <Redirect to="/home" />
       </Route>
       <Route exact path="/home" component={Home} />
-      <PrivateRoute exact path="/categories" component={Categories} />
+
+      <PrivateRouteUsers exact path="/categories" component={Categories} />
       <QuestionsAnsweredProvider>
-        <PrivateRoute
+        <PrivateRouteUsers
           exact
           path="/categorySelected/:category"
           component={SelectedCategory}
         />
-        <PrivateRoute
+        <PrivateRouteUsers
           exact
-          path="/Congratulations"
+          path="/congratulations"
           component={Congratulations}
         />
+        <Route path="*" component={NotFound} />
       </QuestionsAnsweredProvider>
-      <Route path="/404" component={NotFound} />
-      <Route path="*">
-        <Redirect to="/404" />
-      </Route>
     </Switch>
   </Router>
 );

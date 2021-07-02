@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { UserNameContext } from "../context/UserNameContext";
 import { useHistory, useLocation } from "react-router-dom";
 import iconQuestions from "../images/iconQuestions.svg";
-// import { db } from "../firsebase";
 import "./style/Home.css";
 
 const Home = () => {
@@ -17,15 +16,6 @@ const Home = () => {
       state: location.pathname,
     });
   };
-
-  // const geta = async () => {
-  //   const querySnapshot = await db.collection("music").get();
-  //   querySnapshot.forEach((doc) => console.log(doc.data()));
-  // };
-
-  // useEffect(() => {
-  //   geta();
-  // }, []);
 
   return (
     <div className="home">
