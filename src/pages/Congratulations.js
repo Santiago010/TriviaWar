@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useQuestionsAnswered from "../hooks/useQuestionsAnswered";
+import { NoBackButton } from "../helpers/NoBackButton";
+
 import "./style/Congratulations.css";
 
 const Congratulations = () => {
   const answered = useQuestionsAnswered();
   const [questionsCorrect, setQuestionsCorrect] = useState(0);
-  const location = useLocation();
 
   useEffect(() => {
+    NoBackButton();
     setQuestionsCorrect(
       answered.questionsAnswered.filter(
         (q) => q.answer.replace(/ /g, "") === q.correct_answer.replace(/ /g, "")
@@ -21,7 +23,7 @@ const Congratulations = () => {
       <header className="congratulations__header">
         <div className="header__questions-correct">
           <b>Preguntas acertadas: </b>
-          {questionsCorrect}
+          {questionsCorrect} de {answered.questionsAnswered.length}
         </div>
         <div className="header__markers">
           <div className="markers__containers">
@@ -75,6 +77,7 @@ const Congratulations = () => {
             );
           }
         })}
+        <Link to="/categories">Categorias</Link>
       </main>
     </div>
   );

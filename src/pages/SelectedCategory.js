@@ -7,6 +7,7 @@ import Modal from "../components/Modal";
 import RandomQuestions from "../helpers/RandomQuestions";
 import Countdown from "../helpers/Countdown";
 import { getQuestions } from "../helpers/GetQuestions";
+import { NoBackButton } from "../helpers/NoBackButton";
 import useQuestionsAnswered from "../hooks/useQuestionsAnswered";
 import "./style/SelectedCategory.css";
 
@@ -57,6 +58,8 @@ const SelectedCategory = () => {
   };
 
   useEffect(() => {
+    NoBackButton();
+    answered.setQuestionsAnswered([]);
     getQuestions(category).then((data) => setQuestions(data));
   }, []);
 

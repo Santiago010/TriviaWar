@@ -16,6 +16,7 @@ body {
     radial-gradient(var(--colorBlueMedium) 1.85px, var(--colorWhite) 1.85px);
   background-size: 74px 74px;
   animation: change-position 2s ease-in-out 0.1s infinite alternate-reverse;
+  user-select: none;
 }
 
 @keyframes change-position {

@@ -125,6 +125,21 @@
   font-size: 1.1em;
 }
 
+.congratulations__main a {
+  margin: 0.2em 0;
+  background-color: var(--colorBlueSoft);
+  border: none;
+  outline: none;
+  color: var(--colorBlueDark);
+  font-family: var(--font-family-principal);
+  border: 1px solid var(--colorBlueDark);
+  border-radius: 0.2em;
+  padding: 0.5em 1em;
+  text-align: center;
+  font-size: 1.1em;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 450px) {
   .main__container-questions {
     width: 80%;
